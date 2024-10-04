@@ -18,8 +18,8 @@ Assurez-vous d'avoir Python 3.10 ou une version ultérieure installé sur votre 
 
 1. Clonez le dépôt :
    ```bash
-   git clone https://github.com/your_username/your_repository.git
-   cd your_repository
+   git clone https://github.com/MedFrio/TP_application_de_gestion_de_budget.git
+   cd TP_application_de_gestion_de_budget
    ```
 
 2. Créez un environnement virtuel :
