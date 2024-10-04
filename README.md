@@ -1,3 +1,5 @@
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=MedFrio_TP_application_de_gestion_de_budget&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=MedFrio_TP_application_de_gestion_de_budget)
+
 # TP_application_de_gestion_de_budget
 Sujet de TP : Développement d'une Application de Gestion de  Budget avec Intégration de Tests Complets.
 
