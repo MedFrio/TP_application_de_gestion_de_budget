@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main  # Remplace "main" par le nom de ta branche par défaut si nécessaire
+  pull_request:
+    branches:
+      - main  # Exécute sur les PR vers la branche principale
+
+jobs:
+  test:
+    runs-on: ubuntu-latest  # Exécute sur l'environnement Ubuntu
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2  # Vérifie le code du dépôt
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.10'  # Version de Python à utiliser
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt  # Installe les dépendances
+
+      - name: Run unit tests and generate coverage
+        run: |
+          mkdir -p coverage  # Crée le répertoire coverage
+          pytest --cov=./ --cov-report=xml:coverage/coverage.xml --cov-report=html:coverage/htmlcov tests/  # Exécute les tests avec couverture
+
+      - name: Run behavior tests
+        run: |
+          behave features/  # Exécute les tests de comportement
+
+      - name: Upload coverage reports
+        uses: actions/upload-artifact@v2
+        with:
+          name: coverage
+          path: coverage/  # Téléverse le répertoire coverage comme artefact
