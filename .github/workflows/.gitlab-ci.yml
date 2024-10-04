@@ -29,18 +29,12 @@ jobs:
         run: |
           sudo apt-get install -y xvfb  # Install X virtual framebuffer
 
-      - name: Start Xvfb
+      - name: Start Xvfb and run tests
         run: |
           Xvfb :99 -ac &  # Start Xvfb on display :99
           export DISPLAY=:99  # Set the DISPLAY environment variable
-
-      - name: Run unit tests and generate coverage
-        run: |
           mkdir -p coverage  # Create coverage directory
           pytest --cov=./ --cov-report=xml:coverage/coverage.xml --cov-report=html:coverage/htmlcov tests/  # Execute tests with coverage
-
-      - name: Run behavior tests
-        run: |
           behave features/  # Execute behavior tests
 
       - name: Upload coverage reports
