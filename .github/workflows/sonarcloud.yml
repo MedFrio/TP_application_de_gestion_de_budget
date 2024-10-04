@@ -80,6 +80,6 @@ jobs:
             # Adjust this to your actual source directory
             -Dsonar.sources=.  # Set to current directory if source files are at the root
             -Dsonar.tests=tests  # Include the test directory for analysis
-            -Dsonar.test.inclusions=**/tests/**  # Explicitly include test files
-            -Dsonar.exclusions=gui_budget_manager.py
+            -Dsonar.test.inclusions=**/tests/**,tests/test_budget_manager.py # Explicitly include test files
+            -Dsonar.exclusions=features/steps/budget_steps.py,gui_budget_manager.py
           projectBaseDir: .  # When you need the analysis to take place in a directory other than the one from which it was launched, default is .
