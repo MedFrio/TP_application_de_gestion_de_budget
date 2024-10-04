@@ -62,7 +62,8 @@ Sur macOS/Linux :
 
 # Sonarcloud
 
-<img width="975" alt="image" src="https://github.com/user-attachments/assets/d68d30eb-7909-48d8-ae8e-1bd21edecd29">
+<img width="976" alt="image" src="https://github.com/user-attachments/assets/f7744178-7b7b-4b23-a6d1-f4deb30ba730">
+
 
 
 # Intégration Continue
