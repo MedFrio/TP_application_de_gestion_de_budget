@@ -41,7 +41,9 @@ class BudgetManager:
     def moyenne_depenses_categorie(self, categorie):
         depenses_categorie = [d['montant'] for d in self.depenses if d['categorie'] == categorie]
         
-        # Erreur volontaire: division par zéro si aucune dépense dans cette catégorie
+        if len(depenses_categorie) == 0:
+            return 0  # Retourne 0 au lieu de provoquer une division par zéro
+        
         total = sum(depenses_categorie)
-        moyenne = total / len(depenses_categorie)  # division par zéro si aucune dépense
+        moyenne = total / len(depenses_categorie)
         return moyenne
