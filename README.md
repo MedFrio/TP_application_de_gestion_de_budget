@@ -59,5 +59,11 @@ Sur macOS/Linux :
   behave features/
 ```
 
+
+# Sonarcloud
+
+<img width="975" alt="image" src="https://github.com/user-attachments/assets/d68d30eb-7909-48d8-ae8e-1bd21edecd29">
+
+
 # Intégration Continue
 Le fichier de configuration pour GitHub Actions est situé dans le répertoire .github/workflows. Cela permet d'exécuter automatiquement les tests lors des pushs ou des pull requests sur la branche principale.
