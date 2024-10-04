@@ -35,4 +35,4 @@ def test_add_expense(gui):
 def test_calculate_average_expenses_no_expenses(gui):
     gui.entry_categorie_moyenne.insert(0, 'Nonexistent Category')  # Set a nonexistent category
     gui.calculer_moyenne_depenses()  # Invoke the average calculation
-    # Check that it raises an exception
+
