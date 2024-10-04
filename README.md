@@ -58,4 +58,4 @@ Sur macOS/Linux :
 ```
 
 # Intégration Continue
-## Le fichier de configuration pour GitHub Actions est situé dans le répertoire .github/workflows. Cela permet d'exécuter automatiquement les tests lors des pushs ou des pull requests sur la branche principale.
+Le fichier de configuration pour GitHub Actions est situé dans le répertoire .github/workflows. Cela permet d'exécuter automatiquement les tests lors des pushs ou des pull requests sur la branche principale.
