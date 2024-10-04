@@ -35,7 +35,7 @@ jobs:
           behave features/  # Exécute les tests de comportement
 
       - name: Upload coverage reports
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: coverage
           path: coverage/  # Téléverse le répertoire coverage comme artefact
