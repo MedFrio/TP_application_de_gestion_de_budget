@@ -3,12 +3,7 @@ Sujet de TP : Développement d'une Application de Gestion de  Budget avec Intég
 
 
 ## Contexte
-Vous allez développer une application de gestion de budget très simple. 
-L'objectif est de vous familiariser avec les différentes approches de tests 
-(unitaires, d'intégration, fonctionnels) ainsi que les méthodologies TDD et BDD. 
-Vous devrez également configurer une pipeline de CI/CD utilisant GitLab CI ou 
-Github Actions,  pour automatiser l'exécution des tests et la vérification de la 
-couverture de code.
+Vous allez développer une application de gestion de budget très simple. L'objectif est de vous familiariser avec les différentes approches de tests (unitaires, d'intégration, fonctionnels) ainsi que les méthodologies TDD et BDD. Vous devrez également configurer une pipeline de CI/CD utilisant GitLab CI ou Github Actions,  pour automatiser l'exécution des tests et la vérification de la couverture de code.
 
 
 # Application de Gestion de Budget
@@ -27,17 +22,16 @@ Assurez-vous d'avoir Python 3.10 ou une version ultérieure installé sur votre 
    cd your_repository
    ```
 
-
 2. Créez un environnement virtuel :
   ```bash
    python -m venv venv
-```
+   ```
 3.Activez l'environnement virtuel :
-sur Windows :
+Sur Windows :
   ```bash
   venv\Scripts\activate
-```
-sur macOS/Linux :
+   ```
+Sur macOS/Linux :
   ```bash
   source venv/bin/activate
 ```
