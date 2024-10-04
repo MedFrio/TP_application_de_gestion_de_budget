@@ -53,4 +53,15 @@ sur macOS/Linux :
   ```bash
   python gui_budget_manager.py
 ```
+# Exécution des tests
+## Pour exécuter les tests unitaires et générer un rapport de couverture, utilisez la commande suivante :
+  ```bash
+  pytest --cov=. --cov-report=xml:coverage/coverage.xml --cov-report=html:coverage/htmlcov tests
+```
+## Pour exécuter simplement les tests de comportement, utilisez :
+  ```bash
+  behave features/
+```
 
+# Intégration Continue
+## Le fichier de configuration pour GitHub Actions est situé dans le répertoire .github/workflows. Cela permet d'exécuter automatiquement les tests lors des pushs ou des pull requests sur la branche principale.
