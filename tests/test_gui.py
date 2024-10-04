@@ -3,36 +3,30 @@ import os
 import pytest
 import tkinter as tk
 
-# Update the system path to include the parent directory
+# Met à jour le chemin du système pour inclure le répertoire parent
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '.', '..')))
 
 from gui_budget_manager import BudgetManagerApp
 
 @pytest.fixture
 def gui():
-    root = tk.Tk()  # Initialize the Tkinter root
-    root.withdraw()  # Hide the main window
-    gui_app = BudgetManagerApp(root, show_messages=False)  # Create the BudgetManagerApp instance without showing messages
-    yield gui_app  # Yield the GUI instance for testing
-    root.destroy()  # Clean up the Tkinter window after the test
+    root = tk.Tk()  # Initialise la racine Tkinter
+    root.withdraw()  # Masque la fenêtre principale
+    gui_app = BudgetManagerApp(root, show_messages=False)  # Crée une instance de BudgetManagerApp sans afficher de messages
+    yield gui_app  # Rend l'instance GUI pour les tests
+    root.destroy()  # Nettoie la fenêtre Tkinter après le test
 
 def test_gui_initialization(gui):
-    assert gui is not None  # Ensure the GUI is initialized
+    assert gui is not None  # Vérifie que la GUI est initialisée
 
 def test_add_expense(gui):
-    gui.manager.ajouter_revenu("Initial Balance", 1000)  # Set the initial balance
-    gui.entry_categorie.insert(0, 'Food')  # Set category in the GUI entry
-    gui.entry_description.insert(0, 'Lunch')  # Set description in the GUI entry
-    gui.entry_montant_depense.insert(0, '100')  # Set amount in the GUI entry
-    gui.button_ajouter_depense.invoke()  # Simulate clicking the "Add Expense" button
-    assert gui.manager.calculer_solde() == 900  # Check that the balance is updated correctly
-
-
-
-
-
+    gui.manager.ajouter_revenu("Initial Balance", 1000)  # Définit le solde initial
+    gui.entry_categorie.insert(0, 'Food')  # Définit la catégorie dans l'entrée de la GUI
+    gui.entry_description.insert(0, 'Lunch')  # Définit la description dans l'entrée de la GUI
+    gui.entry_montant_depense.insert(0, '100')  # Définit le montant dans l'entrée de la GUI
+    gui.button_ajouter_depense.invoke()  # Simule le clic sur le bouton "Ajouter Dépense"
+    assert gui.manager.calculer_solde() == 900  # Vérifie que le solde est mis à jour correctement
 
 def test_calculate_average_expenses_no_expenses(gui):
-    gui.entry_categorie_moyenne.insert(0, 'Nonexistent Category')  # Set a nonexistent category
-    gui.calculer_moyenne_depenses()  # Invoke the average calculation
-
+    gui.entry_categorie_moyenne.insert(0, 'Nonexistent Category')  # Définit une catégorie inexistante
+    gui.calculer_moyenne_depenses()  # Invoque le calcul de la moyenne
