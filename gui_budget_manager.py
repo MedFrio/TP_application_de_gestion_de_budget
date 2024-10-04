@@ -3,11 +3,12 @@ from tkinter import messagebox
 from budget_manager import BudgetManager
 
 class BudgetManagerApp:
-    def __init__(self, root):
+    def __init__(self, root, show_messages=True):
         self.root = root
         self.root.title("Gestionnaire de Budget")
-        self.root.geometry("300x400")  # Définit la taille de la fenêtre à 400x400 pixels
+        self.root.geometry("300x400")  # Définit la taille de la fenêtre à 300x400 pixels
         self.manager = BudgetManager()
+        self.show_messages = show_messages  # Store the message display preference
 
         # Ajouter une dépense
         self.label_categorie = tk.Label(root, text="Catégorie de dépense")
@@ -55,36 +56,40 @@ class BudgetManagerApp:
         self.button_calculer_moyenne = tk.Button(root, text="Calculer Moyenne", command=self.calculer_moyenne_depenses)
         self.button_calculer_moyenne.pack()
 
+    def show_message(self, title, message):
+        if self.show_messages:
+            messagebox.showinfo(title, message)  # Show message box if allowed
+
     def ajouter_depense(self):
         categorie = self.entry_categorie.get()
         description = self.entry_description.get()
         try:
             montant = float(self.entry_montant_depense.get())
             self.manager.ajouter_depense(categorie, description, montant)
-            messagebox.showinfo("Succès", "Dépense ajoutée avec succès!")
+            self.show_message("Succès", "Dépense ajoutée avec succès!")
         except ValueError:
-            messagebox.showerror("Erreur", "Veuillez entrer un montant valide.")
+            self.show_message("Erreur", "Veuillez entrer un montant valide.")
 
     def ajouter_revenu(self):
         description = self.entry_description_revenu.get()
         try:
             montant = float(self.entry_montant_revenu.get())
             self.manager.ajouter_revenu(description, montant)
-            messagebox.showinfo("Succès", "Revenu ajouté avec succès!")
+            self.show_message("Succès", "Revenu ajouté avec succès!")
         except ValueError:
-            messagebox.showerror("Erreur", "Veuillez entrer un montant valide.")
+            self.show_message("Erreur", "Veuillez entrer un montant valide.")
 
     def calculer_solde(self):
         solde = self.manager.calculer_solde()
-        messagebox.showinfo("Solde total", f"Le solde total est: {solde}")
+        self.show_message("Solde total", f"Le solde total est: {solde}")
 
     def calculer_moyenne_depenses(self):
         categorie = self.entry_categorie_moyenne.get()
         try:
             moyenne = self.manager.moyenne_depenses_categorie(categorie)
-            messagebox.showinfo("Moyenne des dépenses", f"La moyenne des dépenses pour '{categorie}' est: {moyenne}")
+            self.show_message("Moyenne des dépenses", f"La moyenne des dépenses pour '{categorie}' est: {moyenne}")
         except ZeroDivisionError:
-            messagebox.showerror("Erreur", f"Aucune dépense trouvée pour la catégorie '{categorie}'. Division par zéro !")
+            self.show_message("Erreur", f"Aucune dépense trouvée pour la catégorie '{categorie}'. Division par zéro!")
 
 # Lancer l'application
 if __name__ == "__main__":
